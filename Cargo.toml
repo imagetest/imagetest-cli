@@ -1,0 +1,7 @@
+[package]
+authors = ["Maximilian Goisser <goisser94@gmail.com>"]
+name = "imagetest-cli"
+version = "0.1.0"
+
+[dependencies]
+clap = "2.26.2"
