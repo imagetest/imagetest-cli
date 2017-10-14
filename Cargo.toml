@@ -3,5 +3,13 @@ authors = ["Maximilian Goisser <goisser94@gmail.com>"]
 name = "imagetest-cli"
 version = "0.1.0"
 
+[[bin]]
+name = "imagetest"
+path = "src/main.rs"
+
 [dependencies]
 clap = "2.26.2"
+colored = "1.5.3"
+serde = "1.0.15"
+serde_derive = "1.0.15"
+toml = "0.4.5"
