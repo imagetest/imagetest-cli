@@ -2,11 +2,15 @@
 
 extern crate clap;
 extern crate colored;
+extern crate futures;
+extern crate hyper;
+extern crate serde_json;
+extern crate tokio_core;
 extern crate toml;
 
 mod config;
 mod validate;
-mod test;
+pub mod test;
 
 use clap::{App};
 use std::fmt::Display;
@@ -23,7 +27,7 @@ fn main() {
 
     if let Some(matches) = matches.subcommand_matches(validate::NAME) {
         validate::run(matches);
-    } else if let Some(matches) = matches.subcommand_matches(validate::NAME) {
+    } else if let Some(matches) = matches.subcommand_matches(test::NAME) {
         test::run(matches);
     }
 }

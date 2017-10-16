@@ -1,15 +1,25 @@
 use std::fs::File;
 use std::io::{Read, BufReader};
 
-#[derive(Deserialize, Debug)]
+#[derive(Deserialize, Debug, Clone)]
 pub struct ConfigV1 {
     pub test_image: Vec<TestImage>,
 }
 
-#[derive(Deserialize, Debug)]
+#[derive(Deserialize, Debug, Clone)]
 pub struct TestImage {
     pub path: String,
     pub test_id: String,
+}
+
+impl ConfigV1 {
+    pub fn api_url(&self) -> String {
+        "http://localhost:3010".to_owned()
+    }
+
+    pub fn test_token(&self) -> String {
+        ::std::env::var("IMAGETEST_TOKEN").expect("IMAGETEST_TOKEN environment variable not set")
+    }
 }
 
 pub fn read_config_file(path: &str) -> String {
